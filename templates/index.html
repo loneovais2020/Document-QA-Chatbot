@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+  <title>File Upload</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='/index_style.css') }}">
+  
+</head>
+
+<body>
+  
+ 
+  <form method="post" action="/" enctype="multipart/form-data">
+    <h2>Select A File or Enter a Website URL</h2>
+     <p>The chat bot can interact with 'txt', 'pdf', 'pptx', 'jpg','png','docx','eml','html'</p>
+
+
+    <input type="text" name="input" placeholder="Enter a Website URL or leave it empty" autocomplete="off">
+    <br>
+    <input type="file" name="file" accept=".pdf, .doc, .docx" autocomplete="off">
+    <br>
+    
+    <input type="submit" value="Submit" onclick="">
+   
+    <div class="spinner">
+      <div></div>   
+      <div></div>    
+      <div></div>    
+      <div></div>    
+      <div></div>    
+      <div></div>    
+      <div></div>    
+      <div></div>    
+      <div></div>    
+      <div></div>    
+    </div>
+  </form>
+  
+ 
+  {% if message %}
+  <p id="warnings">{{ message }}</p>
+  {% endif %}
+      
+  
+  <script>
+    function hideWarning() {
+      document.getElementById("warnings").style.display = "none"; 
+    }
+    
+    setTimeout(hideWarning, 5000);
+
+
+
+
+    // Get reference to the spinner div
+const spinner = document.querySelector('.spinner');
+
+// Initially hide it
+spinner.style.visibility = 'hidden'; 
+
+// Get reference to submit button 
+const submitBtn = document.querySelector('input[type="submit"]');
+
+// Add click event listener
+submitBtn.addEventListener('click', () => {
+  // Show spinner on click
+  spinner.style.visibility = 'visible';
+});
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>
+
+
